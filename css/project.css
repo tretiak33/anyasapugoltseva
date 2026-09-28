@@ -38,6 +38,12 @@
   height: 100%;
   object-fit: cover;
 }
+.project-figure__caption-hero {
+  margin-top: var(--space-12);
+  font-size: var(--fs-body-s);
+  line-height: var(--lh-body-s);
+  color: var(--gray-9);
+}
 
 /* Второй блок страницы (текстовые секции) — раньше использовал общий
    .section с крупным section-gap; теперь отступ от блока с картинкой
@@ -121,4 +127,156 @@
   .project-hero__desc {
     max-width: none;
   }
+}
+
+/* ---------- "Мои задачи" ---------- */
+.project-tasks {
+  background: var(--gray-2);
+  border-radius: var(--radius-card-image);
+  padding: var(--card-padding);
+}
+.project-tasks__title {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: 700;
+  color: var(--gray-16);
+}
+.project-tasks__list {
+  margin-top: var(--space-16);
+}
+
+/* ---------- Инлайн-скриншот с подписью ---------- */
+.project-figure {
+  margin: 0;
+}
+.project-figure__media {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--gray-16);
+}
+.project-figure__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.project-figure figcaption {
+  margin-top: var(--space-12);
+  font-size: var(--fs-body-s);
+  line-height: var(--lh-body-s);
+  color: var(--gray-9);
+}
+
+/* ---------- Метрики ---------- */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gutter);
+}
+.metric-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.metric-grid--1 {
+  grid-template-columns: 1fr;
+}
+.metric-stat {
+  background: var(--gray-2);
+  border-radius: var(--radius-card);
+  padding: var(--space-24);
+  text-align: center;
+}
+.metric-stat__value {
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
+  font-weight: 700;
+  color: var(--gray-16);
+}
+.metric-stat__label {
+  margin-top: var(--space-8);
+  font-size: var(--fs-body-s);
+  line-height: var(--lh-body-s);
+  color: var(--gray-10);
+}
+
+/* ---------- Заметка о незавершённом цикле (нет метрик пока) ---------- */
+.metric-note {
+  border: 1px dashed var(--gray-5);
+  border-radius: var(--radius-card-image);
+  padding: var(--space-16) var(--space-20);
+  font-size: var(--fs-body-s);
+  line-height: var(--lh-body-s);
+  color: var(--gray-10);
+}
+
+@media (max-width: 767px) {
+  .metric-grid,
+  .metric-grid--2,
+  .metric-grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Схема "было / стало" ---------- */
+.flow-diagram {
+  background: var(--gray-2);
+  border-radius: var(--radius-card-image);
+  padding: var(--card-padding);
+}
+.flow-diagram__row + .flow-diagram__row {
+  margin-top: var(--space-24);
+}
+.flow-diagram__label {
+  font-size: var(--fs-caption-s);
+  line-height: var(--lh-caption-s);
+  font-weight: 600;
+  color: var(--gray-9);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-12);
+}
+.flow-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---- "Было": приглушённые серые боксы, повторяющийся шаг выделен ---- */
+.flow-box rect {
+  fill: var(--gray-1);
+  stroke: var(--gray-5);
+  stroke-width: 1;
+}
+.flow-box--repeat rect {
+  fill: var(--gray-3);
+  stroke: var(--gray-7);
+}
+.flow-text {
+  font-family: var(--font-family);
+  font-size: 12px;
+  fill: var(--gray-12);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+.flow-line {
+  stroke: var(--gray-7);
+  stroke-width: 1.5;
+}
+.flow-arrowhead {
+  fill: var(--gray-7);
+}
+
+/* ---- "Стало": контрастные тёмные боксы, один уверенный шаг ---- */
+.flow-box--after rect {
+  fill: var(--gray-16);
+  stroke: none;
+}
+.flow-text--after {
+  fill: var(--gray-1);
+  font-weight: 600;
+}
+.flow-line--after {
+  stroke: var(--gray-16);
+  stroke-width: 2;
+}
+.flow-arrowhead--after {
+  fill: var(--gray-16);
 }
